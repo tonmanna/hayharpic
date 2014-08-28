@@ -1,9 +1,19 @@
 <div class="jumbotron">
     <h1>Hay Har Pic 1.0</h1>
+    <h4>ระบบ ฝากไฟล์รูปภาพพร้อมข้อความกวนๆ ตามใจของคุณเอง ความกว้าง ความสูงของภาพสูงสุดที่ 800px นะครัชชช แต่ถ้า Up เกินมาระบบจะ Resize ให้ครับ</h4>
     <div role="form">
         <div class="form-group-lg">
-            <label>File :</label>
-            <input class="form-control" type="file" id="file">
+            <label>กรุณาเลือกไฟล์ที่ต้องการ *.jpg *.png :</label>
+            <input class="form-inline" type="file" ng-click="progress = 0" ng-file-select="onFileSelect($files)">
+            <div style="padding-top: 5px">
+                <progressbar class="progress-striped" value="progress" type="success">{{progress}}%</progressbar>
+            </div>
+        </div>
+    </div>
+    <div style="padding-top: 15px;"></div>
+    <div class="row" ng-repeat="image in pictures">
+        <div class="col-md-3" style="border: dashed 1px #0c0c0c;height: 200px;overflow-y: hidden">
+            <img style="width: 100%;height: 100%" ng-src="./trumbnail/{{image.id}}">
         </div>
     </div>
 </div>
